@@ -1,4 +1,5 @@
 <?php
+session_start();
 include 'configsql/menampilkan_data.php';
 ?>
 
@@ -55,7 +56,7 @@ include 'configsql/menampilkan_data.php';
       <section class="Jumbotron-bg">
         <div class="jumbotron warna-bg text-white pt-5 pb-5">
         <div class="container">
-            <h1 class="display-4">Selamat Datang,RobbyRamadhanA</h1>
+            <h1 class="display-4">Selamat Datang,<?php echo $_SESSION["username"] ?></h1>
             <p class="lead">Ini Adalah Website yang dibuat Untuk Memenuhi Tugas Mata Kuliah Web Programming Robby Ramadhan Anshory</p>
             <p>Semoga Terlaksana dengan baik dan lancar dan Menghasilkan Nilai Yang Memuaskan Hohoho :D</p>
             <a class="btn btn-primary btn-lg" href="#" role="button">Selengkapnya...</a>
@@ -68,7 +69,7 @@ include 'configsql/menampilkan_data.php';
        
        <!-- Awal Konten -->
        <div class="container">
-       <a class="btn btn-primary btn-lg mb-3" href="form_info.php" role="button">Tambah Informasi</a>
+       <a class="btn btn-outline-primary btn-lg mb-3" href="form_info.php" role="button">Tambah Informasi</a>
         <div class="row">
               <?php while ($row = $q->fetch()) :
                         $id = $row['id'];
@@ -101,14 +102,12 @@ include 'configsql/menampilkan_data.php';
                    <h6 class="card-text"><a href="info.php?id=<?php echo $id ?>" class="text-primary"> 
                    <?php echo $title; ?></h6></a>
                      <p class="card-text"><small class="text-muted"><?php echo $tanggal;?></small></p>
-                     <button type="submit" class="btn btn-primary mt-4">Edit</button>
+                     <button type="submit" class="btn btn-outline-info mt-4">Edit</button>
                         
                  </div>
                </div>
-            </div>
+            </div>   
             <?php endwhile; ?>
-                
-
         </div>
     </div>
     <!-- Akhir Konten -->

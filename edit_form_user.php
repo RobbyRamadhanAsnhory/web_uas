@@ -1,14 +1,8 @@
 <?php
 session_start();
 $id = $_POST['id']; 
-$judul = $_POST['judul'];
-$deskripsi = $_POST['deskripsi'];
-$image = $_POST['image'];
-$footer = $_POST['footer'];
-$ttd = $_POST['ttd'];
-$atas_nama = $_POST['atas_nama'];
-$kategori = $_POST['kategori'];
-$tanggal = $_POST['tanggal'];
+$nama_lengkap = $_POST["name"];
+$username = $_POST["username"];
 ?>
 <!doctype html>
 <html>
@@ -60,7 +54,7 @@ $tanggal = $_POST['tanggal'];
       <section class="Jumbotron-bg">
         <div class="jumbotron warna-bg text-white pt-5 pb-5">
         <div class="container">
-            <h1 class="display-4">Edit Informasi</h1>
+            <h1 class="display-4">Edit Profile</h1>
             
         </div> 
         </div>
@@ -75,37 +69,22 @@ $tanggal = $_POST['tanggal'];
                 <div class="card">
                     <div class="card-body">
                         <div class="alert alert-success" role="alert">
-                        Silahkan Membuat Informasi Yang Anda Inginkan!
+                        Edit User!
                           </div>
-                          <form action="configsql/edit_informasi.php" method="POST">
+                          <form action="configsql/edit_user.php" method="POST">
                           <input type="hidden" name="id" value="<?php echo $id; ?>">
                             <div class="form-group">
-                              <label for="exampleInputEmail1">Judul</label>
-                              <input type="text" class="form-control" name=judul id="exampleInputEmail1" aria-describedby="emailHelp"
-                              placeholder="Masukkan Judul" value="<?php echo $judul; ?>">
+                              <label for="exampleInputEmail1">Nama</label>
+                              <input type="text" class="form-control" name=name id="exampleInputEmail1" aria-describedby="emailHelp"
+                              placeholder="Masukkan Nama Baru" value="<?php echo $nama_lengkap; ?>">
                   
                             </div>
                             <div class="form-group">
-                              <label for="nama">Deskripsi</label>
-                              <input type="text" class="form-control" name=deskripsi id="exampleInputPassword1"
-                              placeholder="Masukkan Deskripsi" value="<?php echo $deskripsi; ?>">
+                              <label for="nama">Username</label>
+                              <input type="text" class="form-control" name=username id="exampleInputPassword1"
+                              placeholder="Masukkan Username Baru" value="<?php echo $username; ?>">
                             </div>
-                            <div class="form-group">
-                              <label for="nama">Image</label>
-                              <input type="text" class="form-control" name=image  id="exampleInputPassword1"
-                              placeholder="Masukkan Url Image" value="<?php echo $image; ?>">
-                            </div>
-                            <div class="form-group">
-                              <label for="nama">Referensi Deskripsi Anda(Url Web)</label>
-                              <input type="text" class="form-control" name=footer id="exampleInputPassword1"
-                              placeholder="Masukkan Referensi" value="<?php echo $footer; ?>">
-                            </div>
-                          
-                            <div class="form-group">
-                              <label for="nama">Kategori</label>
-                              <input type="text" class="form-control" name=kategori id="exampleInputPassword1"
-                              placeholder="Masukkan Kategori" value="<?php echo $kategori; ?>">
-                            </div>
+                            
                             <button type="submit" class="btn btn-primary" >Edit</button>
                             <button type="reset" class="btn btn-danger" name="breset">Kosongkan</button>
                           </form>     

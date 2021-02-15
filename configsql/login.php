@@ -18,6 +18,7 @@ try {
             $_SESSION["userid"] = $data["id"];
             $_SESSION["username"] = $data["username"];
             $_SESSION["name"] = $data["nama"];
+            $_SESSION["judul"] = $data["judul"];
             header("Location: ../HalamanUtama.php");
             return;
         } else {

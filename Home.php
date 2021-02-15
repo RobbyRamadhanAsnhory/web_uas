@@ -1,5 +1,6 @@
 <?php
-
+session_start();
+include 'configsql/menampilkan_data.php';
 ?><!doctype html>
 <html>
   <head>
@@ -61,20 +62,19 @@
        <!-- Awal Konten -->
        <div class="container">
            <div class="row">
-               <div class="col-md-8 mb-4"> <!--Awal Colom 8-->
+               <div class="col-md-8 mb-4" > <!--Awal Colom 8-->
                 <div class="card">
                     <div class="card-body">
-                      <h2> Profil Saya</h2>
-                      <p>Hallo Nama Saya Robby Ramadhan Anshory </p>
-                          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Recusandae, dolorum blanditiis! 
-                            Aut ipsam veritatis autem fuga libero sint aperiam? 
-                            Pariatur ut nisi sint accusamus maxime vel aperiam explicabo enim laboriosam.</p>
-                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Recusandae, dolorum blanditiis! 
-                                Aut ipsam veritatis autem fuga libero sint aperiam? 
-                                Pariatur ut nisi sint accusamus maxime vel aperiam explicabo enim laboriosam.</p>
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Recusandae, dolorum blanditiis! 
-                                    Aut ipsam veritatis autem fuga libero sint aperiam? 
-                                    Pariatur ut nisi sint accusamus maxime vel aperiam explicabo enim laboriosam.</p>  
+                      <h2 class="text-center"> Profil Saya</h2>
+                      <p>Hallo Nama Saya, <?php echo $_SESSION["name"] ?> </p>
+                      <p> Username : <?php echo $_SESSION["username"] ?></p>
+
+                      <form action="edit_form_user.php" method="POST">
+              <input type="hidden" id="id-card" name="id" value=<?php echo $id ?> />
+                  <button type="submit" class="btn btn-outline-info mt-4">Edit</button>
+           
+            </form>       
+                          
                     </div>
                   </div>
                </div><!--Akhir Colom 8-->

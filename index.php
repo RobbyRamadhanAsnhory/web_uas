@@ -1,5 +1,5 @@
 <?php
-
+include 'configsql/menampilkan_data.php';
 ?>
 
 <!doctype html>
@@ -67,94 +67,45 @@
        <!-- Awal Konten -->
        <div class="container">
         <div class="row">
+              <?php while ($row = $q->fetch()) :
+                        $id = $row['id'];
+                        $title = $row['judul'];
+                        $desc = $row['deskripsi'];
+                        $img = $row['image'];
+                        $footer = $row['footer'];
+                        $ttd = $row['ttd'];
+                        $nama = $row['atas_nama'];
+                        $kategori = $row['kategori'];
+                        $tanggal = $row['tanggal'];
+
+                    ?>
             <div class="col-md-3 mb-3">
              <div class="card">
-                 <img src="img/bs.jpg" class="card-img-top" alt="Gambar">
+             <form action="edit_form_info.php" method="POST">
+             <input type="hidden" name="id" value="<?php echo $id; ?>">
+             <input type="hidden" name="judul" value="<?php echo $title; ?>">
+             <input type="hidden" name="deskripsi" value="<?php echo $desc; ?>">
+             <input type="hidden" name="image" value="<?php echo $img; ?>">
+             <input type="hidden" name="footer" value="<?php echo $footer; ?>">
+             <input type="hidden" name="ttd" value="<?php echo $ttd; ?>">
+             <input type="hidden" name="atas_nama" value="<?php echo $nama; ?>">
+             <input type="hidden" name="kategori" value="<?php echo $kategori; ?>">
+             <input type="hidden" name="tanggal" value="<?php echo $tanggal; ?>">
+             
+                 <img src=<?php echo $img; ?> class="card-img-top" alt="Gambar">
                  <div class="card-body">
-                   <h6 class="card-title text-info">Boostrap 4</h6>
+                   <h6 class="card-title text-info"><?php echo $kategori; ?></h6>
                    <h6 class="card-text"><a href="Login.php" class="text-primary"> 
-                     1# - Belajar Boostrap sungguh menyenangkan dan seru</h6></a>
-                     <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                   <?php echo $title; ?></h6></a>
+                     <p class="card-text"><small class="text-muted"><?php echo $tanggal;?></small></p>
+                     
+                        
                  </div>
                </div>
             </div>
-            <div class="col-md-3 mb-3">
-             <div class="card">
-                 <img src="img/css.png" class="card-img-top" alt="Gambar">
-                 <div class="card-body">
-                  <h6 class="card-title text-info">CSS</h6>
-                   <h6 class="card-text"><a href="Login.php" class="text-primary"> 
-                     2# - Belajar CSS sungguh menyenangkan dan seru</h6></a>
-                     <p class="card-text"><small class="text-muted">Last updated 5 mins ago</small></p>
-                 </div>
-               </div>
-            </div>
-            <div class="col-md-3 mb-3">
-             <div class="card">
-                 <img src="img/css.png" class="card-img-top" alt="Gambar">
-                 <div class="card-body">
-                   <h6 class="card-title text-info">CSS</h6>
-                   <h6 class="card-text"><a href="Login.php" class="text-primary"> 
-                     1# - Belajar CSS sungguh menyenangkan dan seru</h6></a>
-                     <p class="card-text"><small class="text-muted">Last updated 8 mins ago</small></p>
-                 </div>
-               </div>
-            </div>
-            <div class="col-md-3 mb-3">
-             <div class="card">
-                 <img src="img/html.png" class="card-img-top" alt="Gambar">
-                 <div class="card-body">
-                  <h6 class="card-title text-info">HTML</h6>
-                   <h6 class="card-text"><a href="Login.php" class="text-primary"> 
-                     2# - Belajar HTML sungguh menyenangkan dan seru</h6></a>
-                     <p class="card-text"><small class="text-muted">Last updated 10 mins ago</small></p>
-                 </div>
-               </div>
-            </div>
-            <div class="col-md-3 mb-3">
-             <div class="card">
-                 <img src="img/html.png" class="card-img-top" alt="Gambar">
-                 <div class="card-body">
-                   <h6 class="card-title text-info">HTML</h6>
-                   <h6 class="card-text"><a href="Login.php" class="text-primary"> 
-                     1# - Belajar HTML sungguh menyenangkan dan seru</h6></a>
-                     <p class="card-text"><small class="text-muted">Last updated 11 mins ago</small></p>
-                 </div>
-               </div>
-            </div>
-            <div class="col-md-3 mb-3">
-             <div class="card">
-                 <img src="img/konten.jpg" class="card-img-top" alt="Gambar">
-                 <div class="card-body">
-                  <h6 class="card-title text-info">Pengenalan Web</h6>
-                  <h6 class="card-text"><a href="Login.php" class="text-primary"> 
-                    3# - Belajar Pemograman Web sungguh menyenangkan dan seru</h6></a>
-                     <p class="card-text"><small class="text-muted">Last updated 15 mins ago</small></p>
-                 </div>
-               </div>
-            </div>
-            <div class="col-md-3 mb-3">
-             <div class="card">
-                 <img src="img/konten.jpg" class="card-img-top" alt="Gambar">
-                 <div class="card-body">
-                  <h6 class="card-title text-info">Pengenalan Web</h6>
-                   <h6 class="card-text"><a href="Login.php" class="text-primary"> 
-                     2# - Belajar Pemograman Web sungguh menyenangkan dan seru</h6></a>
-                     <p class="card-text"><small class="text-muted">Last updated 18 mins ago</small></p>
-                 </div>
-               </div>
-            </div>
-            <div class="col-md-3 mb-3">
-             <div class="card">
-                 <img src="img/konten.jpg" class="card-img-top" alt="Gambar">
-                 <div class="card-body">
-                   <h6 class="card-title text-info">Pengenalan Web</h6>
-                   <h6 class="card-text"><a href="Login.php" class="text-primary"> 
-                     1# - Belajar Pemograman Web sungguh menyenangkan dan seru</h6></a>
-                     <p class="card-text"><small class="text-muted">Last updated 20 mins ago</small></p>
-                 </div>
-               </div>
-            </div>
+            <?php endwhile; ?>
+                
+
         </div>
     </div>
     <!-- Akhir Konten -->
